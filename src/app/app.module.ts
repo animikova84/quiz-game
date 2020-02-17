@@ -12,6 +12,7 @@ import { QuizModule } from './quiz/quiz.module';
 import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './shared/services/auth.service';
+import { UserRoutingModule } from './user/user-routing.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AuthService } from './shared/services/auth.service';
     QuizModule,
     SharedModule,
     AppRoutingModule,
+    UserRoutingModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [AuthService],

@@ -1,9 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './quiz/list/list.component';
-import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
     {
@@ -11,10 +10,22 @@ const routes: Routes = [
         pathMatch: 'full',
         component: ListComponent
     },
-    { path: 'signup', component: RegisterComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'profile', component: ProfileComponent },
-    { path: '**', component: NotFoundComponent },
+    { 
+        path: 'signup', 
+        component: RegisterComponent,
+        canActivate:[AuthGuard],
+        data: {
+            isLogged: false
+        }
+    },
+    { 
+        path: 'login', 
+        component: LoginComponent,
+        canActivate:[AuthGuard],
+        data: {
+            isLogged: false
+        }
+    },
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);

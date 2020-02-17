@@ -29,24 +29,20 @@ export class AuthService {
     })
   }
 
-  SignIn(email, password) {
+  SignIn(email:string, password:string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['/']);
-        });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
       })
   }
 
-  // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(email:string, password:string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SetUserData(result.user);
-        this.router.navigate(['/']);
+        this.router.navigate(['']);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -61,13 +57,10 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
-  // Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
-       this.ngZone.run(() => {
-          this.router.navigate(['/']);
-        })
+      this.ngZone.run(() => {this.router.navigate([''])})
       this.SetUserData(result.user);
     }).catch((error) => {
       window.alert(error)
@@ -89,7 +82,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     })
   }
 }

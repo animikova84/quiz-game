@@ -1,5 +1,5 @@
 <h1>Login to Quiz Game App</h1>
-<form #loginForm="ngForm" (ngSubmit)="authService.SignIn(userName.value, userPassword.value)">
+<form #loginForm="ngForm" (ngSubmit)="login(userName.value, userPassword.value)">
     <div class="form-group">
       <label for="username">Email address</label>
       <input type="text" class="form-control" id="username" placeholder="Username" #userName required>
@@ -21,13 +21,13 @@
 
 <!-- Calling GoogleAuth Api from AuthService -->
 <div class="form-group">
-  <button type="button" class="btn btn-primary googleBtn" (click)="authService.GoogleAuth()">
+  <button type="button" class="btn btn-primary googleBtn" (click)="googleLogin()">
     <i class="fab fa-google-plus-g"></i>
     Log in with Google
   </button>
 </div>
 
 <div class="redirectToLogin">
-  <span>Don't have an account?<span class="redirect" routerLink="/register"> Sign Up</span></span>
+  <span>Don't have an account?<span class="redirect" routerLink="/signup"> Sign Up</span></span>
 </div>
   
