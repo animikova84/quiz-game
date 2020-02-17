@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Choose your quiz game</h1>
+  
+  <div class="row">
+    <div class="col-sm" *ngFor="let item of items | async">
+      <h2>{{item.name}}</h2>
+      <button class="btn btn-primary btn-info">Start quiz</button>
+    </div>
+  </div>
+</div>
