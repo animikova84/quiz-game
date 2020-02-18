@@ -1,5 +1,5 @@
 <h1>Register to create a quiz game</h1>
-<form (ngSubmit)="authService.SignUp(userEmail.value, userPwd.value)">
+<form (ngSubmit)="register(userEmail.value, userPwd.value)">
   <div class="form-group">
     <label for="email">Email address</label>
     <input type="email" class="form-control" id="email" placeholder="Email Address" #userEmail required>
@@ -19,7 +19,6 @@
   <span class="or"><span class="orInner">Or</span></span>
 </div>
 
-<!-- Continue with Google -->
 <div class="form-group">
   <button type="button" class="btn btn-primary googleBtn" (click)="authService.GoogleAuth()">
     <i class="fab fa-google-plus-g"></i>

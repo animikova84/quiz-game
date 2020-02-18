@@ -17,10 +17,6 @@ const routes: Routes = [
             },
         ]
     },
-    { 
-        path: '**', 
-        component: NotFoundComponent 
-    },
 ];
 
 export const UserRoutingModule = RouterModule.forChild(routes);

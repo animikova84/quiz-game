@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './shared/services/auth.service';
 import { UserRoutingModule } from './user/user-routing.module';
+import { QuizService } from './shared/services/quiz.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { UserRoutingModule } from './user/user-routing.module';
     UserRoutingModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [AuthService],
+  providers: [AuthService, QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,6 +26,7 @@ const routes: Routes = [
             isLogged: false
         }
     },
+    
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes);

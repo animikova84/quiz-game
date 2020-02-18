@@ -7,11 +7,9 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  public userInfo: {}
-  public userName: string = '';
- 
+  public user = JSON.parse(localStorage.getItem('user'));
+
   constructor(public authService: AuthService) { 
-    this.userInfo = this.authService.userData;
   }
 
   ngOnInit(): void {

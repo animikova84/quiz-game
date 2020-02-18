@@ -7,7 +7,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { CreateComponent } from './create/create.component';
 import { ViewComponent } from './view/view.component';
 import { QuizRoutingModule } from './quiz-routing.module';
-import { QuizService } from './quiz.service';
 
 @NgModule({
   declarations: [ListComponent, CreateComponent, ViewComponent],
@@ -17,6 +16,6 @@ import { QuizService } from './quiz.service';
     AngularFirestoreModule,
     QuizRoutingModule
   ],
-  providers:  [ QuizService ]
+  providers:  [ ]
 })
 export class QuizModule { }

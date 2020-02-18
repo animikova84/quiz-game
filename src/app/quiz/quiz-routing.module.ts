@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ViewComponent } from './view/view.component';
 import { CreateComponent } from './create/create.component';
+import { ListComponent } from './list/list.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -9,10 +11,10 @@ const routes: Routes = [
             {
                 path: '',
                 pathMatch: 'full',
-                redirectTo: 'quiz/list'
+                component: ListComponent
             },
             {
-                path: 'view',
+                path: 'view/:id',
                 component: ViewComponent
             },
             {
@@ -20,6 +22,10 @@ const routes: Routes = [
                 component: CreateComponent
             }
         ]
+    },
+    { 
+        path: '**', 
+        component: NotFoundComponent 
     },
 ];
 

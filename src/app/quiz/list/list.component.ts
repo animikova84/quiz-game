@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'firebase/firestore';
 import { Observable } from 'rxjs';
+import {AngularFireDatabase } from '@angular/fire/database';
+import 'firebase/database';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-list',
@@ -11,7 +14,15 @@ import { Observable } from 'rxjs';
 export class ListComponent {
   items: Observable<any[]>;
 
-  constructor(firestore: AngularFirestore) {
+  get isLogged() {
+    return this.authService.isLoggedIn;
+  }
+
+  constructor(
+    public authService: AuthService,
+    firestore: AngularFirestore, 
+    db: AngularFireDatabase
+  ) {
     this.items = firestore.collection('quiz').valueChanges();
   }
   
